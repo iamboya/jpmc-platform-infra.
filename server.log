@@ -1,0 +1,4 @@
+2026-09-24 10:00:01 INFO User srikanth logged in
+2026-09-24 10:05:22 WARNING Database latency increased past 200ms
+2026-09-24 10:10:45 CRITICAL Transaction failed: Insufficient cluster storage
+2026-09-24 10:15:30 INFO Heartbeat signal sent to backup vault
