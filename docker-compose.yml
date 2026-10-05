@@ -1,8 +1,4 @@
-version: '3.8'
-
 services:
-  
-  # Service 1: Our Transaction Web Gateway Backend
   transaction-api:
     build: .
     container_name: production-gateway-app
@@ -10,13 +6,16 @@ services:
       - "9090:80"
     volumes:
       - ./container-logs:/app/logs
+    # Inject variables dynamically from outside the application code box
+    environment:
+      - JPMC_PORT=80
+      - JPMC_ENV=STAGING_ENVIRONMENT
     deploy:
       resources:
         limits:
           cpus: '0.5'
           memory: 128M
 
-  # Service 2: The Core Banking Cache (Simulating a Multi-Container Dependency)
   banking-cache:
     image: redis:7-alpine
     container_name: cluster-redis-cache
